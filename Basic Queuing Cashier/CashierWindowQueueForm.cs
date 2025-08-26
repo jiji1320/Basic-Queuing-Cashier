@@ -28,13 +28,14 @@ namespace Basic_Queuing_Cashier
             timer1 = new Timer();
             timer1.Interval = 1000;
             timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Start();  
-        }
+            timer1.Start();
+
+        } 
+
         private void timer1_Tick(object sender, EventArgs e) 
         {
             DisplayCashierQueue(CashierClass.CashierQueue);
         }
-
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
@@ -61,12 +62,20 @@ namespace Basic_Queuing_Cashier
                 string dequeueNumber = CashierClass.CashierQueue.Dequeue();
                 MessageBox.Show($"Serving Customer: {dequeueNumber}");
                 DisplayCashierQueue(CashierClass.CashierQueue);
+                
 
             }
             else 
             {
                 MessageBox.Show("The queue is currently empty.");
             }
+        }
+
+
+
+        private void CashierWindowQueueForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }   

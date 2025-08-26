@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Basic_Queuing_Cashier.CustomerView;
 
 
 namespace Basic_Queuing_Cashier
@@ -16,12 +17,17 @@ namespace Basic_Queuing_Cashier
     {
         private CashierClass cashier;
         CashierWindowQueueForm ciqw;
+        private readonly CustomerViewForm hshs;
         public QueuingForm1()
         {
             InitializeComponent();
             cashier = new CashierClass();
             ciqw = new CashierWindowQueueForm();
+            hshs = new CustomerViewForm();
             ciqw.Show();
+            
+            
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -34,6 +40,9 @@ namespace Basic_Queuing_Cashier
             lblQueue.Text = cashier.CashierGeneratedNumber("P - ");
             CashierClass.getNumberInQueue = lblQueue.Text;
             CashierClass.CashierQueue.Enqueue(CashierClass.getNumberInQueue);
+            CustomerView customerForm = new CustomerView();
+            customerForm.Show();
+
         }
     }
 }
